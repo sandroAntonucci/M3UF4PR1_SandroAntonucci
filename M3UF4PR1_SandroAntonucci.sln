@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34511.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "M3UF4PR1_SandroAntonucci", "M3UF4PR1_SandroAntonucci\M3UF4PR1_SandroAntonucci.csproj", "{2466CD4F-2948-492B-A24F-C9C036C397B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProjectCRAM", "TestProjectCRAM\TestProjectCRAM.csproj", "{3D912694-2B34-4B0F-966E-E937F35DD856}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2466CD4F-2948-492B-A24F-C9C036C397B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2466CD4F-2948-492B-A24F-C9C036C397B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2466CD4F-2948-492B-A24F-C9C036C397B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2466CD4F-2948-492B-A24F-C9C036C397B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D912694-2B34-4B0F-966E-E937F35DD856}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D912694-2B34-4B0F-966E-E937F35DD856}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D912694-2B34-4B0F-966E-E937F35DD856}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D912694-2B34-4B0F-966E-E937F35DD856}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {414AC1DC-D974-49BD-ABDD-4B1BFCED5168}
+	EndGlobalSection
+EndGlobal
