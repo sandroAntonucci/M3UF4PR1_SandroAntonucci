@@ -9,7 +9,7 @@ namespace CRAM
     {
         static void Main(string[] args)
         {
-            const int One = 1, Five = 5, Twenty = 20;
+            const int Zero = 0, One = 1, Five = 5, Twenty = 20;
 
             const string MsgEndGame = "Fins el proper rescat!";
             const string MsgShowMenu = "1. Jugar\n2. Sortir\n\nAcció: ";
@@ -25,7 +25,10 @@ namespace CRAM
             const string MsgRecovered = "L'animal s'ha recuperat correctament. Guanyes {0} d'experiència.";
             const string MsgFinalXP = "La teva experiència final és de {0}.";
 
-            int userAction = 0, userCureChoice, randomAnimal;
+            int userAction = Zero, userCureChoice;
+
+            string? userName;
+
             AAnimal animalToRescue;      
 
             // Menu
@@ -34,16 +37,16 @@ namespace CRAM
                 Console.Write(MsgShowMenu);
                 userAction = Convert.ToInt32(Console.ReadLine());
 
-                if (!CheckValidAction(userAction)) Console.WriteLine(MsgInvalidAction);
+                if (!GameMethods.CheckValidAction(userAction)) Console.WriteLine(MsgInvalidAction);
             
-            }while(!CheckValidAction(userAction));
+            }while(!GameMethods.CheckValidAction(userAction));
 
             // Si l'usuari vol jugar
-            if(userAction == 1)
+            if(userAction == One)
             {
 
                 // Es genera un animal aleatori
-                animalToRescue = GenerateRandomAnimal();
+                animalToRescue = AAnimal.GenerateRandomAnimal();
 
                 Console.Write(MsgValidMenuAction);
 
@@ -53,13 +56,16 @@ namespace CRAM
                     Console.Write(MsgShowRoles);
                     userAction = Convert.ToInt32(Console.ReadLine());
 
-                    if (!CheckValidAction(userAction)) Console.WriteLine(MsgInvalidAction);
+                    if (!GameMethods.CheckValidAction(userAction)) Console.WriteLine(MsgInvalidAction);
 
-                } while (!CheckValidAction(userAction));
+                } while (!GameMethods.CheckValidAction(userAction));
 
                 // S'introdueix el nom i es crea el jugador (no es comprova res del nom, tots són vàlids)
                 Console.WriteLine(MsgIntroName);
-                Player player = new Player(Console.ReadLine(), userAction);
+                
+                userName = Console.ReadLine();
+
+                Player player = new Player(userName, userAction);
 
                 Console.WriteLine(MsgRescue, player.Name);
 
@@ -75,9 +81,9 @@ namespace CRAM
                     Console.WriteLine(MsgAffectation, animalToRescue.Species, rescue.GA);
                     userCureChoice = Convert.ToInt32(Console.ReadLine());
 
-                    if (!CheckValidAction(userCureChoice)) Console.WriteLine(MsgInvalidAction);
+                    if (!GameMethods.CheckValidAction(userCureChoice)) Console.WriteLine(MsgInvalidAction);
 
-                } while (!CheckValidAction(userCureChoice));
+                } while (!GameMethods.CheckValidAction(userCureChoice));
                 
                 rescue.GA = animalToRescue.ApplyTreatment(userCureChoice == One, rescue.GA);
 
@@ -108,57 +114,5 @@ namespace CRAM
             Console.WriteLine(MsgEndGame);
 
         }
-
-        /// <summary>
-        /// Mètode que retorna si l'acció es vàlida
-        /// </summary>
-        /// <param name="upper">Si action és igual a 1 o 2 retorna true, si no false</param>
-        /// <returns>Retorna si action és igual a 1 o 2</returns>
-        public static bool CheckValidAction(int action)
-        {
-            return action == 1 || action == 2;
-        }
-
-        /// <summary>
-        /// Mètode que retorna un valor aleatori entre min i max
-        /// </summary>
-        /// <param name="min">Valor mínim</param>
-        /// <param name="max">Valor màxim</param>
-        /// <returns>Retorna un valor aleatori entre min i max (inclosos)</returns>
-        public static int GenerateRandom(int min, int max)
-        {
-            Random random = new Random();
-            return random.Next(min, max+1);
-        }
-
-         
-        /// <summary>
-        /// Mètode que genera un animal aleatori i el retorna
-        /// </summary>
-        /// <returns>Retorna un animal aleatori (o cetaci, o tortuga, o au marina)</returns>
-        public static AAnimal GenerateRandomAnimal()
-        {
-            AAnimal animalToRescue;
-            int randomAnimal = GenerateRandom(1, 3);
-
-            if (randomAnimal == 1)
-            {
-                animalToRescue = new Turtle();
-            }
-            else if (randomAnimal == 2)
-            {
-                animalToRescue = new Cetacean();
-            }
-            else
-            {
-                animalToRescue = new Seabird();
-            }
-
-            return animalToRescue;
-        }
-
-
-
     }
-
 }

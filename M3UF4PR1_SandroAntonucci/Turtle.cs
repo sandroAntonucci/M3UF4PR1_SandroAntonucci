@@ -6,11 +6,16 @@ namespace CRAM
     public class Turtle : AAnimal
     {
 
+        const string BaseName = "Valpa";
+        const string BaseSuperFamily = "Tortuga marina";
+        const string BaseSpecies = "Tortuga Careta";
+        const double BaseWeight = 7;
+
         // Constructor de major càrrega lògica
         public Turtle(string name, string superFamily, string species, double weight) : base(name, superFamily, species, weight) { }
 
         // Constructor sense paràmetres 
-        public Turtle() : base("Valpa", "Tortuga marina", "Tortuga Careta", 7) { }
+        public Turtle() : base(BaseName, BaseSuperFamily, BaseSpecies, BaseWeight) { }
 
         /// <summary>
         /// Métode que retorna el grau d'afectació després de l'aplicació del tractament

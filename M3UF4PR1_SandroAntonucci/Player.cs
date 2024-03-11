@@ -5,6 +5,8 @@ namespace CRAM
     public class Player
     {
 
+        const int Zero = 0, Technical = 1, Veterinarian = 2, TechnicalXP = 45, VeterinarianXP = 80;
+
         public string Name { get; set; }
         public int RewardXP { get; set; }
         public int XP { get; set; }
@@ -22,10 +24,10 @@ namespace CRAM
             Name = name;
 
             // El roletype ens indica si es técnic o veterinari i s'assignen les recompenses d'XP depenent del rol
-            if (roleType == 1) RewardXP = 45;
-            else if (roleType == 2) RewardXP = 80; 
+            if (roleType == Technical) RewardXP = TechnicalXP;
+            else if (roleType == Veterinarian) RewardXP = VeterinarianXP; 
 
-            XP = 0;
+            XP = Zero;
         }
 
     }

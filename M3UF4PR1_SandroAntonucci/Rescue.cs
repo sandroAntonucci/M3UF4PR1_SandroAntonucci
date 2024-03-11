@@ -5,9 +5,10 @@ namespace CRAM
     public class Rescue
     {
 
+        const int MinGA = 0, MinRES = 0, MaxGA = 100, MaxRES = 1000, MinLocation = 0, MaxLocation = 4;
         public string NRescue { get; set; }
 
-        public string Date { get; set; }
+        public DateTime Date { get; set; }
 
         public string Species { get; set; }
 
@@ -15,7 +16,7 @@ namespace CRAM
 
         public string Location { get; set; }
 
-        public Rescue(string nRescue, string date, string species, int gA, string location)
+        public Rescue(string nRescue, DateTime date, string species, int gA, string location)
         {
             NRescue = nRescue;
             Date = date;
@@ -28,7 +29,7 @@ namespace CRAM
         public Rescue(string species) 
         {
             NRescue = GenerateResNum();
-            Date = DateTime.Now.ToString("dd/MM/yyyy");
+            Date = DateTime.Now;
             Species = species;
             GA = GenerateGA();
             Location = GenerateLocation();
@@ -42,7 +43,7 @@ namespace CRAM
         public string GenerateResNum()
         {
             Random random = new Random();
-            return "RES" + random.Next(0, 1000);
+            return "RES" + random.Next(MinRES, MaxRES);
         }
 
         /// <summary>
@@ -52,7 +53,7 @@ namespace CRAM
         public int GenerateGA()
         {
             Random random = new Random();
-            return random.Next(1, 100);
+            return random.Next(MinGA, MaxGA);
         }
 
         /// <summary>
@@ -63,7 +64,7 @@ namespace CRAM
         {
             string[] Cities = { "Barcelona", "Girona", "Lleida", "Tarragona" };
             Random random = new Random();
-            return Cities[random.Next(0, 4)];
+            return Cities[random.Next(MinLocation, MaxLocation)];
         }
 
 

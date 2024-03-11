@@ -6,11 +6,17 @@ namespace CRAM
     public class Cetacean : AAnimal
     {
 
+        const string BaseName = "Oumou";
+        const string BaseSuperFamily = "Cetaci";
+        const string BaseSpecies = "Dofí";
+        const double BaseWeight = 20.5;
+        
+
         // Constructor de major càrrega lògica
         public Cetacean(string name, string superFamily, string species, double weight) : base(name, superFamily, species, weight) { }
 
         // Constructor sense paràmetres 
-        public Cetacean() : base("Oumou", "Cetaci", "Dofí", 20.5) { }
+        public Cetacean() : base(BaseName, BaseSuperFamily, BaseSpecies, BaseWeight) { }
 
         /// <summary>
         /// Métode que retorna el grau d'afectació després de l'aplicació del tractament

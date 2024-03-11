@@ -6,11 +6,16 @@ namespace CRAM
     public class Seabird : AAnimal
     {
 
+        const string BaseName = "Pingu";
+        const string BaseSuperFamily = "Au Marina";
+        const string BaseSpecies = "Pingüí";
+        const double BaseWeight = 20;
+
         // Constructor de major càrrega lògica
         public Seabird(string name, string superFamily, string species, double weight) : base(name, superFamily, species, weight) { }
 
         // Constructor sense paràmetres 
-        public Seabird() : base("Pingu", "Au Marina", "Pingüí", 20) { }
+        public Seabird() : base(BaseName, BaseSuperFamily, BaseSpecies, BaseWeight) { }
 
         /// <summary>
         /// Métode que retorna el grau d'afectació després de l'aplicació del tractament
